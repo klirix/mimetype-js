@@ -15,17 +15,13 @@
 
 	// If we're NodeJS I can use the path module.
 	// If I'm MongoDB shell, not available.
-	if (typeof require !== 'undefined') {
-		path = require('path');
-	} else {
-		path = {
-			extname: function (filename) {
-				if (filename.lastIndexOf(".") > 0) {
-					return filename.substr(filename.lastIndexOf("."));
-				}
+	path = {
+		extname: function (filename) {
+			if (filename.lastIndexOf(".") > 0) {
+				return filename.substr(filename.lastIndexOf("."));
 			}
-		};
-	}
+		}
+	};
 
 	if (exports === undefined) {
 		exports = {};
